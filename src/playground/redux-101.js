@@ -19,7 +19,7 @@ const setCount = ({ count }) => ({
   count
 });
 
-const store = createStore((state = { count: 0 }, action) => {
+const countReducer = (state = { count: 0 }, action) => {
   switch (action.type) {
     case 'INCREMENT':
       return {
@@ -40,7 +40,9 @@ const store = createStore((state = { count: 0 }, action) => {
     default:
       return state;
   }
-});
+};
+
+const store = createStore(countReducer);
 
 const unsubscribe = store.subscribe(() => {
   console.log(store.getState());
@@ -51,5 +53,4 @@ store.dispatch(incrementCount());
 store.dispatch(resetCount());
 store.dispatch(decrementCount());
 store.dispatch(decrementCount({ decrementBy: 10 }));
-
 store.dispatch(setCount({ count: 101 }));
