@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npx webpack",
     "serve": "npx live-server .\\public",
-    "dev-server": "npx webpack-dev-server"
+    "dev-server": "npx webpack-dev-server",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "@babel/preset-react": "^7.8.3",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.2",
+    "jest": "^26.0.1",
     "live-server": "^1.2.1",
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
