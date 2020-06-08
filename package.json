@@ -4,7 +4,8 @@
   "description": "Expensify App using React",
   "main": "index.js",
   "scripts": {
-    "build": "npx webpack",
+    "build:dev": "npx webpack",
+    "build:prod": "npx webpack -p --env production",
     "serve": "npx live-server .\\public",
     "dev-server": "npx webpack-dev-server",
     "test": "jest --config=jest.config.json"
