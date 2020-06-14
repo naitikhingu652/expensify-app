@@ -13,6 +13,26 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-firebase.database().ref().set({
-  name: 'Naitik Hingu'
+const database = firebase.database();
+
+database.ref().set({
+  name: 'Naitik Hingu',
+  age: 24,
+  isSingle: false,
+  location: {
+    city: 'Sydney',
+    country: 'Australia'
+  }
+});
+
+// database.ref().set("This is test data");
+
+database.ref('age').set(25);
+
+database.ref('location/city').set('Pune');
+database.ref('location/country').set('India');
+
+database.ref('attributes').set({
+  height: 170,
+  weight: 78
 });
