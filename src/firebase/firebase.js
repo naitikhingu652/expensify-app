@@ -31,16 +31,34 @@ database.ref().set({
 
 // database.ref().set("This is test data");
 
-database.ref('age').set(25);
+// database.ref('age').set(25);
 
-database.ref('location/city').set('Pune');
-database.ref('location/country').set('India');
+// database.ref('location/city').set('Pune');
+// database.ref('location/country').set('India');
 
-database.ref('attributes').set({
-  height: 170,
-  weight: 78
-}).then(() => {
-  console.log('Data saved!');
-}).catch((error) => {
-  console.log('Failed: ', error);
-});
+// database.ref('attributes').set({
+//   height: 170,
+//   weight: 78
+// }).then(() => {
+//   console.log('Data saved!');
+// }).catch((error) => {
+//   console.log('Failed: ', error);
+// });
+
+// database.ref('isSingle')
+//   .remove()
+//   .then(() => {
+//     console.log('isSingle Removed');
+//   }).catch((error) => {
+//     console.log('Failed: ', error);
+//   });
+
+// database.ref('isSingle').set(null);
+
+// database.ref()
+//   .remove()
+//   .then(() => {
+//     console.log('Data removed');
+//   }).catch((error) => {
+//     console.log('Failed: ', error);
+//   });
