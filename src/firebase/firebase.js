@@ -23,6 +23,10 @@ database.ref().set({
     city: 'Sydney',
     country: 'Australia'
   }
+}).then(() => {
+  console.log('Data saved!');
+}).catch((error) => {
+  console.log('Failed: ', error);
 });
 
 // database.ref().set("This is test data");
@@ -35,4 +39,8 @@ database.ref('location/country').set('India');
 database.ref('attributes').set({
   height: 170,
   weight: 78
+}).then(() => {
+  console.log('Data saved!');
+}).catch((error) => {
+  console.log('Failed: ', error);
 });
