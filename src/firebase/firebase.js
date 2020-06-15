@@ -15,19 +15,23 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 
-database.ref().set({
-  name: 'Naitik Hingu',
-  age: 24,
-  isSingle: false,
-  location: {
-    city: 'Sydney',
-    country: 'Australia'
-  }
-}).then(() => {
-  console.log('Data saved!');
-}).catch((error) => {
-  console.log('Failed: ', error);
-});
+// database.ref().set({
+//   name: 'Naitik Hingu',
+//   age: 24,
+//   isSingle: false,
+//   location: {
+//     city: 'Sydney',
+//     country: 'Australia'
+//   }
+// }).then(() => {
+//   console.log('Data saved!');
+// }).catch((error) => {
+//   console.log('Failed: ', error);
+// });
+
+// *********************************************************
+// SET
+// *********************************************************
 
 // database.ref().set("This is test data");
 
@@ -44,6 +48,10 @@ database.ref().set({
 // }).catch((error) => {
 //   console.log('Failed: ', error);
 // });
+
+// *********************************************************
+// REMOVE
+// *********************************************************
 
 // database.ref('isSingle')
 //   .remove()
@@ -62,3 +70,80 @@ database.ref().set({
 //   }).catch((error) => {
 //     console.log('Failed: ', error);
 //   });
+
+// *********************************************************
+// UPDATE
+// *********************************************************
+
+// database.ref().update({
+//   name: 'HINGU', // Update
+//   age:25, // Update
+//   job: 'Software Developer', // Set
+//   isSingle: null // Remove
+// }).then(() => {
+//   console.log('Data updated');
+// }).catch((error) => {
+//   console.log('Failed: ', error);
+// });
+
+// database.ref().set({
+//   name: 'Naitik Hingu',
+//   age: 24,
+//   job: 'Software Developer',
+//   location: {
+//     city: 'Sydney',
+//     country: 'Australia'
+//   }
+// }).then(() => {
+//   console.log('Data saved!');
+// }).catch((error) => {
+//   console.log('Failed: ', error);
+// });
+
+// database.ref().update({
+//   job: 'Manager',
+//   location: {
+//     city: 'Melbourne'
+//   }
+// }).then(() => {
+//   console.log('Data updated');
+// }).catch((error) => {
+//   console.log('Failed: ', error);
+// });
+
+// database.ref().update({
+//   job: 'Manager',
+//   'location/city': 'Melbourne'
+// }).then(() => {
+//   console.log('Data updated');
+// }).catch((error) => {
+//   console.log('Failed: ', error);
+// });
+
+database.ref().set({
+  name: 'Naitik Hingu',
+  age: 24,
+  stressLevel: 7,
+  job: {
+    title: 'Software Developer',
+    company: 'Infosys'
+  },
+  location: {
+    city: 'Sydney',
+    country: 'Australia'
+  }
+}).then(() => {
+  console.log('Data saved!');
+}).catch((error) => {
+  console.log('Failed: ', error);
+});
+
+database.ref().update({
+  stressLevel: 9,
+  'job/company': 'Telstra',
+  'location/city': 'Brisbane'
+}).then(() => {
+  console.log('Data updated!');
+}).catch((error) => {
+  console.log('Failed: ', error);
+});
