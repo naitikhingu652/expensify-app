@@ -120,30 +120,92 @@ const database = firebase.database();
 //   console.log('Failed: ', error);
 // });
 
-database.ref().set({
-  name: 'Naitik Hingu',
-  age: 24,
-  stressLevel: 7,
-  job: {
-    title: 'Software Developer',
-    company: 'Infosys'
-  },
-  location: {
-    city: 'Sydney',
-    country: 'Australia'
-  }
-}).then(() => {
-  console.log('Data saved!');
-}).catch((error) => {
-  console.log('Failed: ', error);
-});
+// database.ref().set({
+//   name: 'Naitik Hingu',
+//   age: 24,
+//   stressLevel: 7,
+//   job: {
+//     title: 'Software Developer',
+//     company: 'Infosys'
+//   },
+//   location: {
+//     city: 'Sydney',
+//     country: 'Australia'
+//   }
+// }).then(() => {
+//   console.log('Data saved!');
+// }).catch((error) => {
+//   console.log('Failed: ', error);
+// });
 
-database.ref().update({
-  stressLevel: 9,
-  'job/company': 'Telstra',
-  'location/city': 'Brisbane'
-}).then(() => {
-  console.log('Data updated!');
-}).catch((error) => {
-  console.log('Failed: ', error);
-});
+// database.ref().update({
+//   stressLevel: 9,
+//   'job/company': 'Telstra',
+//   'location/city': 'Brisbane'
+// }).then(() => {
+//   console.log('Data updated!');
+// }).catch((error) => {
+//   console.log('Failed: ', error);
+// });
+
+// *********************************************************
+// FETCH
+// *********************************************************
+
+// database.ref()
+//   .once('value')
+//   .then((snapshot) => {
+//     const val = snapshot.val();
+//     console.log(val);
+//   })
+//   .catch((error) => {
+//     console.log('Failed: ', error);
+//   });
+
+// database.ref('location')
+//   .once('value')
+//   .then((snapshot) => {
+//     const val = snapshot.val();
+//     console.log(val);
+//   })
+//   .catch((error) => {
+//     console.log('Failed: ', error);
+//   });
+
+// database.ref('location/city')
+//   .once('value')
+//   .then((snapshot) => {
+//     const val = snapshot.val();
+//     console.log(val);
+//   })
+//   .catch((error) => {
+//     console.log('Failed: ', error);
+//   });
+
+// const onValueChange = database.ref().on('value', (snapshot) => {
+//   const val = snapshot.val();
+//   console.log(val);
+// }, (e) => {
+//   console.log('Error Fetching: ', e);
+// });
+
+// setTimeout(() => {
+//   database.ref('age').set(10);
+// }, 5000);
+
+// setTimeout(() => {
+//   database.ref().off(onValueChange);
+// }, 10000);
+
+// setTimeout(() => {
+//   database.ref('age').set(20);
+// }, 15000);
+
+// database.ref().on('value', (snapeshot) => {
+//   const val = snapeshot.val();
+//   console.log(`${val.name} is a ${val.job.title} at ${val.job.company}`);
+// });
+
+// setTimeout(() => {
+//   database.ref('job/company').set('Infosys');
+// }, 5000);
