@@ -209,3 +209,107 @@ const database = firebase.database();
 // setTimeout(() => {
 //   database.ref('job/company').set('Infosys');
 // }, 5000);
+
+// *********************************************************
+// Arrays
+// *********************************************************
+
+// const firebaseNotes = {
+//   notes: {
+//     id1: {
+//       title: 'First Note',
+//       body: 'This is first note'    
+//     },
+//     id2: {
+//       title: 'Second Note',
+//       body: 'This is second note'    
+//     }
+//   }
+// };
+
+// const notes = [{
+//   id: '12',
+//   title: 'First Note',
+//   body: 'This is first note'
+// }, {
+//   id: '176ase',
+//   title: 'Second Note',
+//   body: 'This is second note'
+// }];
+
+// database.ref('notes').set(notes);
+
+// database.ref('notes').push({
+//   title: 'Push Note 2',
+//   body: 'This is Push note 2'
+// });
+
+// database.ref('notes/-M9rrQAPnFfBKYCoKGfI').update({
+//   body: 'Updated Body'
+// });
+
+// database.ref('notes/-M9rrQAPnFfBKYCoKGfI').remove();
+
+// database.ref('expenses').push({
+//   amount: 80000,
+//   createdAt: 19384985634,
+//   description: 'Rent',
+//   note: 'January Rent'
+// });
+
+// database.ref('expenses').push({
+//   amount: 6400,
+//   createdAt: 786981734,
+//   description: 'Groceries',
+//   note: 'David Fresh'
+// });
+
+// database.ref('expenses').push({
+//   amount: 20000,
+//   createdAt: 12349249609,
+//   description: 'Groceries',
+//   note: 'IGA'
+// });
+
+// database.ref('expenses')
+// .once('value')
+// .then((snapshot) => {
+//   const expenses = [];
+//   snapshot.forEach((childSnapeshot) => {
+//     expenses.push({
+//       id: childSnapeshot.key,
+//       ...childSnapeshot.val()
+//     });
+//   })
+//   console.log(expenses);
+// });
+
+// database.ref('expenses').on('value', (snapshot) => {
+//   const expenses = [];
+//   snapshot.forEach((childSnapeshot) => {
+//     expenses.push({
+//       id: childSnapeshot.key,
+//       ...childSnapeshot.val()
+//     });
+//   })
+//   console.log(expenses);
+// });
+
+database.ref('expenses').on('child_removed', (snapshot) => {
+  console.log(snapshot.key, snapshot.val());
+});
+
+database.ref('expenses').on('child_changed', (snapshot) => {
+  console.log(snapshot.key, snapshot.val());
+});
+
+database.ref('expenses').on('child_added', (snapshot) => {
+  console.log(snapshot.key, snapshot.val());
+});
+
+database.ref('expenses').push({
+  amount: 80000,
+  createdAt: 19384985634,
+  description: 'Rent',
+  note: 'January Rent'
+});
