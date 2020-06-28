@@ -10,7 +10,7 @@ export default class ExpenseForm extends React.Component {
       description: props.expense ? props.expense.description : '',
       note: props.expense ? props.expense.note : '',
       amount: props.expense ? (props.expense.amount / 100).toString() : '',
-      createdAt: props.expense ? moment(props.expense.createdAt): moment(),
+      createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
       calendarFocused: false,
       error: ''
     };
@@ -48,7 +48,7 @@ export default class ExpenseForm extends React.Component {
     if (!this.state.description || !this.state.amount) {
       this.setState(() => ({ error: 'Please provide description and/or amount!' }));
     } else {
-      this.setState(() => ({ error:'' }));
+      this.setState(() => ({ error: '' }));
       this.props.onSubmit({
         description: this.state.description,
         amount: Math.ceil(parseFloat(this.state.amount, 10) * 100),
@@ -65,6 +65,7 @@ export default class ExpenseForm extends React.Component {
         <form onSubmit={this.onSubmit}>
           <input
             type="text"
+            className="text-input"
             placeholder="Description"
             autoFocus
             autoComplete="off"
@@ -73,6 +74,7 @@ export default class ExpenseForm extends React.Component {
           />
           <input
             type="text"
+            className="text-input"
             placeholder="Amount"
             value={this.state.amount}
             onChange={this.onAmountChange}
@@ -86,6 +88,7 @@ export default class ExpenseForm extends React.Component {
             isOutsideRange={() => false}
           />
           <textarea
+            className="textarea-input"
             placeholder="Add a note for your expense(optional)"
             value={this.state.note}
             onChange={this.onNoteChange}
